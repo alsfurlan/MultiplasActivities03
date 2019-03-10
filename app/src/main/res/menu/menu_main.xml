@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.multiplasactivities01.MainActivity">
+
+    <item
+        android:id="@+id/inicio"
+        android:orderInCategory="100"
+        android:title="@string/inicio"
+        />
+
+    <item
+        android:id="@+id/sair"
+        android:orderInCategory="100"
+        android:title="@string/sair"
+        android:onClick="sair"
+        />
+
+</menu>
