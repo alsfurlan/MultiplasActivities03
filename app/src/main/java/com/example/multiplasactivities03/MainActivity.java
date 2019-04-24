@@ -1,11 +1,15 @@
-package com.example.multiplasactivities01;
+package com.example.multiplasactivities03;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,12 +44,23 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if(resultCode == RESULT_OK && requestCode == 1) {
+            String activity = data.getStringExtra("activity");
+            TextView mainActivityTextView = findViewById(R.id.mainActivityTextView);
+            mainActivityTextView.setText(activity);
+        }
+    }
+
     private void inicio() {
         Intent intent = new Intent(this, InicioActivity.class);
-        startActivity(intent);
+        intent.putExtra("activity", "MainActivity");
+        startActivityForResult(intent, 1);
     }
 
     public void sair(MenuItem item) {
         finish();
     }
+
 }
